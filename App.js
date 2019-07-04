@@ -6,7 +6,7 @@
  * @flow
  */
 
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -24,6 +24,8 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
+import Config from "react-native-config";
+
 const App = () => {
   return (
     <Fragment>
@@ -31,11 +33,17 @@ const App = () => {
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+          style={styles.scrollView}
+        >
           <Header />
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
+              <Text style={styles.sectionTitle}>{Config.API_URL}</Text>
+              <Text style={styles.sectionTitle}>{Config.APP_ID}</Text>
+              <Text style={styles.sectionTitle}>{Config.DISPLAY_NAME}</Text>
+              <Text style={styles.sectionTitle}>{Config.VERSION}</Text>
+              <Text style={styles.sectionTitle}>{Config.IOS_BUNDLE_VERSION}</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
                 screen and then come back to see your edits.
@@ -90,7 +98,7 @@ const styles = StyleSheet.create({
     color: Colors.dark,
   },
   highlight: {
-    fontWeight: '700',
+    fontWeight: '700'
   },
 });
 
