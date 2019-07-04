@@ -115,11 +115,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.condep"
+        applicationId project.env.get("APP_ID")
         resValue "string", "build_config_package", "com.condep"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode project.env.get("VERSION").toInteger()
         versionName "1.0"
     }
     splits {
